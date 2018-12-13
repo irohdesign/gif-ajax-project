@@ -5,17 +5,34 @@ var topics = ["history", "sick", "happy", "the office", "greys anatomy", "jennam
 
 // var searchTerm = "cats";
 
-for (var i = 0; i < topics.length; i++) {
+function buttonLoop () {
+    $("#button-container").empty();
 
-    // create button for each topic
-    var topicBtn = $("<button>");
-    $(topicBtn).text(topics[i]).attr("class", "btn").attr("data-value", topics[i]);
-    $("#button-container").append(topicBtn);
+    for (var i = 0; i < topics.length; i++) {        
+        // create button for each topic
+        var topicBtn = $("<button>");
+        $(topicBtn).text(topics[i]).attr("class", "btn").attr("data-value", topics[i]);
+        $("#button-container").append(topicBtn);
+    }
 }
 
+buttonLoop();
+
+$("#userButtonGen").on("click", function() {
+    var userInput = $("#textInput").val();
+    var userButton = $("<button>");
+    
+    userButton.text(userInput);
+    topics.push(userInput);
+    console.log(topics);
+    buttonLoop();
+})
+
+        
 
 $(".btn").on("click", function () {
     event.preventDefault();
+    $("#images-container").empty();
 
     var searchTerm = $(this).attr("data-value");
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=IEIzfujY4UXYx3Sd4jarElMDtOPjQNnx&limit=10"
@@ -27,11 +44,9 @@ $(".btn").on("click", function () {
     }).then(function(response) {
         console.log(response);
 
-        var userInput = $("#testInput").val();
         var results = response.data;
-
         console.log(results);
-        topics.push(userInput);
+        
 
         // // grab 10 static gif images and display them
         for (var i = 0; i < results.length; i++) {
