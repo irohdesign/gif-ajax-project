@@ -35,7 +35,7 @@ $(document).on("click", ".btn", function () {
     $("#images-container").empty();
 
     var searchTerm = $(this).attr("data-value");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=IEIzfujY4UXYx3Sd4jarElMDtOPjQNnx&limit=10"
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=IEIzfujY4UXYx3Sd4jarElMDtOPjQNnx&limit=10"
 
     console.log($(this));
 
