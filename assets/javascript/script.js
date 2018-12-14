@@ -1,7 +1,7 @@
 // api key = IEIzfujY4UXYx3Sd4jarElMDtOPjQNnx
 
 // array of strings for topics
-var topics = ["history", "sick", "happy", "the office", "greys anatomy", "jennamarbles"];
+var topics = ["parks and rec", "sick", "happy", "the office", "greys anatomy", "crabs"];
 
 // var searchTerm = "cats";
 
