@@ -30,13 +30,14 @@ $("#userButtonGen").on("click", function() {
 
         
 
-$(".btn").on("click", function () {
+$(document).on("click", ".btn", function () {
     event.preventDefault();
     $("#images-container").empty();
 
     var searchTerm = $(this).attr("data-value");
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=IEIzfujY4UXYx3Sd4jarElMDtOPjQNnx&limit=10"
 
+    console.log($(this));
 
     $.ajax({
         url: queryURL,
@@ -73,8 +74,19 @@ $(".btn").on("click", function () {
 
     })
 
-    //loop to create buttons for topics array
+    
     
     
 })
+
+// need to listen to the entire document for dynamically-created content
+
+// $(document.body).on("click", ".btn", function() {
+
+// // 
+
+// // 
+
+
+//   });
 
